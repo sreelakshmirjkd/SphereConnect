@@ -1,0 +1,106 @@
+# API to create a user account
+
+###
+
+POST http://127.0.0.1:8000/api/signup/
+Content-Type: application/json
+
+{
+    "username": "rest",
+    "email": "rest@gmail.com",
+    "password": "Password@123"
+}
+
+###
+
+#  API for token
+
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+ "username": "python",
+ "password": "Password@123"
+
+}
+
+###
+
+# API to updateuserprofile
+
+PUT http://127.0.0.1:8000/api/profile/
+Content-Type: application/json
+Authorization: Token d1a75c8d1c64e91a6739af29b4c51d8ddb21f413
+
+{
+    "address":"GHI",
+    "phone": "7654321098",
+    "bio": "RST"
+}
+
+###
+
+# API for fetching user profile detail
+
+GET http://127.0.0.1:8000/api/profile/
+Authorization: Token d1a75c8d1c64e91a6739af29b4c51d8ddb21f413
+
+
+###
+# API for user detail(complete = user details+profile details)
+
+GET http://127.0.0.1:8000/api/user/
+Authorization: Token d1a75c8d1c64e91a6739af29b4c51d8ddb21f413
+
+
+# ------------------------- POST ------------------------ #
+
+
+###
+# API for adding a post
+
+POST http://127.0.0.1:8000/api/posts/
+Content-Type: application/json
+Authorization: Token 3d7b7a7a390acb7ed7596c2f9bd0135e1111f263
+
+{
+    "caption":"Django's Second Post"
+
+}
+
+###
+# API to list all posts
+
+GET http://127.0.0.1:8000/api/posts/
+Authorization:Token c245ab2e82b8949c693c0e5a8d55ccb6c0b59f2f 
+###
+
+# API to fetch post details
+
+GET http://127.0.0.1:8000/api/posts/1/
+Authorization: Token 3d7b7a7a390acb7ed7596c2f9bd0135e1111f263
+
+
+# --------------------- COMMENTS --------------------------- #
+
+
+###
+
+# API To add comment -- Token of Comment sender
+
+POST http://127.0.0.1:8000/api/posts/2/comments/
+Content-Type: application/json
+Authorization: Token d1a75c8d1c64e91a6739af29b4c51d8ddb21f413
+
+{
+    "message":"hi django from rest"
+}
+
+###
+
+# API to like a post
+
+POST http://127.0.0.1:8000/api/posts/1/add-like
+Authorization: Token c245ab2e82b8949c693c0e5a8d55ccb6c0b59f2f
+
+
